@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>V9 Sports</title>
+
+    <!-- Preload: imagens críticas acima da dobra -->
+    <link rel="preload" as="image" href="banner-v9-sports.png">
+    <link rel="preload" as="image" href="logo-v9-sports.png">
+    <link rel="preload" as="image" href="fundo-fumaça-vermelha-em-chamas.png">
+    <link rel="preload" as="image" href="camisas-de-time/t2-frente.png">
+    <link rel="preload" as="image" href="img-chuteiras/ch1-frente.png">
+    <link rel="preload" as="image" href="img-bolas/b2-frente.png">
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo-box">
+            <img src="logo-v9-sports.png" class="logo" width="280" height="280" fetchpriority="high" alt="V9 Sports">
+        </div>
+
+        <ul class="menu">
+            <li class="nav-item active">🏠 Início</li>
+            <li class="nav-item">🔥 Destaques</li>
+            <li class="nav-item">🥾 Chuteiras</li>
+            <li class="nav-item">🧤 Luvas de Goleiro</li>
+        </ul>
+
+        <div class="social">
+            <a href="https://www.instagram.com/v9_sportss/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da V9 Sports" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@v9_sports" target="_blank" rel="noopener noreferrer" aria-label="TikTok da V9 Sports" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </aside>
+
+    <button class="reopen-btn" id="reopenBtn" onclick="toggleSidebar()" style="display:none;">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <main class="main" id="mainContent">
+        <div class="content">
+
+            <div class="topo">
+                <div class="search-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="O que você está buscando?" autocomplete="off">
+                    <button class="search-clear" id="searchClear" onclick="clearSearch()"><i class="fas fa-times"></i></button>
+                    <div class="search-dropdown" id="searchDropdown"></div>
+                </div>
+            </div>
+
+            <!-- PÁGINA DE RESULTADOS -->
+            <section class="search-results-page" id="searchResultsPage">
+                <div class="search-results-header">
+                    <button class="search-results-back" onclick="clearSearch()">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <h2>Resultados para: <span id="searchResultsQuery"></span></h2>
+                    <p id="searchResultsCount"></p>
+                </div>
+                <div class="search-results-grid" id="searchResultsGrid"></div>
+            </section>
+
+            <div class="content-main" id="contentMain">
+
+            <section class="banner">
+                <img src="banner-v9-sports.png" width="1905" height="825" fetchpriority="high" alt="Banner V9 Sports">
+            </section>
+
+            <section class="categorias-container">
+                <div class="titulo-categorias">
+                    <h2>Categorias principais:</h2>
+                </div>
+
+                <div class="categorias">
+                    <div class="cat"><img src="chuteiras.png" width="120" height="120" loading="lazy" alt="Chuteiras"><p>Chuteiras</p></div>
+                    <div class="cat"><img src="camisas-de-times.png" width="120" height="120" loading="lazy" alt="Camisas de Times"><p>Camisas de Times</p></div>
+                    <div class="cat"><img src="shorts.png" width="120" height="120" loading="lazy" alt="Shorts"><p>Shorts</p></div>
+                    <div class="cat"><img src="bolas.png" width="120" height="120" loading="lazy" alt="Bolas"><p>Bolas</p></div>
+                </div>
+            </section>
+
+            <section class="produtos" id="sec-destaques">
+                <h2>🔥 <span>Destaques</span></h2>
+
+                <div class="carousel-wrapper">
+                    <button class="slider-btn prev" onclick="moveSlider('productSlider', -1)">❮</button>
+
+                    <div class="grid" id="productSlider">
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="camisas-de-time/t2-frente.png" class="img-frente" width="280" height="380" fetchpriority="high" alt="Camisa São Paulo II 25/26 s/n">
+                                <img src="camisas-de-time/t2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camisa São Paulo II 25/26 s/n verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Camisa São Paulo II 25/26 s/n</h3>
+                            <p>R$ 179,54</p>
+                            <a href="https://tiddly.xyz/hLvgh" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-chuteiras/ch1-frente.png" class="img-frente" width="280" height="380" fetchpriority="high" alt="Chuteira de Campo Meia Elástico">
+                                <img src="img-chuteiras/ch1-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Chuteira de Campo Meia Elástico verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Chuteira de Campo Meia Elástico</h3>
+                            <p>R$ 94,05</p>
+                            <a href="https://s.shopee.com.br/5q9Mv0ajeM" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-bolas/b2-frente.png" class="img-frente" width="280" height="380" fetchpriority="high" alt="Bola de Campo Penalty">
+                                <img src="img-bolas/b2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bola de Campo Penalty verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Bola de Campo Penalty</h3>
+                            <p>R$ 60,00</p>
+                            <a href="https://s.shopee.com.br/6L5dXqq0AR" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="camisas-de-time/t3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Camisa Corinthians Nike II">
+                                <img src="camisas-de-time/t3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camisa Corinthians Nike II verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Camisa Corinthians Nike II</h3>
+                            <p>R$ 189,99</p>
+                            <a href="https://tiddly.xyz/ubbDz" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-chuteiras/ch2-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Chuteira Campo Com Trava">
+                                <img src="img-chuteiras/ch2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Chuteira Campo Com Trava verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Chuteira Campo Com Trava</h3>
+                            <p>R$ 95,00</p>
+                            <a href="https://s.shopee.com.br/3VlS8oxpbV" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-bolas/b3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Bola Futebol Topper Hybrid">
+                                <img src="img-bolas/b3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bola Futebol Topper Hybrid verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Bola Futebol Topper Hybrid</h3>
+                            <p>R$ 48,90</p>
+                            <a href="https://s.shopee.com.br/7AekXfBW7f" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="camisas-de-time/t5-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Camisa Palmeiras I 24/25 sn°">
+                                <img src="camisas-de-time/t5-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camisa Palmeiras I 24/25 sn° verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Camisa Palmeiras I 24/25 sn°</h3>
+                            <p>R$ 159,90</p>
+                            <a href="https://tiddly.xyz/UsJLU" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-chuteiras/ch3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Chuteira Society Campo Grama Sintética">
+                                <img src="img-chuteiras/ch3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Chuteira Society Campo Grama Sintética verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Chuteira Society Campo Grama Sintética</h3>
+                            <p>R$ 85,04</p>
+                            <a href="https://s.shopee.com.br/6AmDK1g0Id" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-bolas/b5-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Bola Futsal Penalty RX 500 + Bomba de Ar">
+                                <img src="img-bolas/b5-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bola Futsal Penalty RX 500 + Bomba de Ar verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Bola Futsal Penalty RX 500 + Bomba de Ar</h3>
+                            <p>R$ 113,91</p>
+                            <a href="https://s.shopee.com.br/5AtgAUIm93" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                    </div>
+
+                    <button class="slider-btn next" onclick="moveSlider('productSlider', 1)">❯</button>
+                </div>
+            </section>
+
+            <section class="sessao-banners-categorias banners-destaque">
+                <div class="banner-categoria" data-filter="roupa">
+                    <img src="banner-camisetas.png" width="600" height="450" loading="lazy" alt="Roupas Esportivas">
+                    <div class="overlay-banner">
+                        <h2>Roupas Esportivas</h2>
+                        <a href="#sec-roupas" class="btn-comprar">Comprar Agora</a>
+                    </div>
+                </div>
+                <div class="banner-categoria" data-filter="short">
+                    <img src="banner-shorts.png" width="600" height="450" loading="lazy" alt="Shorts">
+                    <div class="overlay-banner">
+                        <h2>Shorts</h2>
+                        <a href="#sec-shorts" class="btn-comprar">Comprar Agora</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="produtos" id="sec-chuteiras">
+                <h2>🥾 <span>Chuteiras</span></h2>
+
+                <div class="carousel-wrapper">
+                    <button class="slider-btn prev" onclick="moveSlider('chuteirasSlider', -1)">❮</button>
+
+                    <div class="grid" id="chuteirasSlider">
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-chuteiras/ch1-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Chuteira de Campo Meia Elástico">
+                                <img src="img-chuteiras/ch1-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Chuteira de Campo Meia Elástico verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Chuteira de Campo Meia Elástico</h3>
+                            <p>R$ 94,05</p>
+                            <a href="https://s.shopee.com.br/5q9Mv0ajeM" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-chuteiras/ch2-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Chuteira Campo Com Trava">
+                                <img src="img-chuteiras/ch2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Chuteira Campo Com Trava verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Chuteira Campo Com Trava</h3>
+                            <p>R$ 95,00</p>
+                            <a href="https://s.shopee.com.br/3VlS8oxpbV" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-chuteiras/ch3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Chuteira Society Campo Grama Sintética">
+                                <img src="img-chuteiras/ch3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Chuteira Society Campo Grama Sintética verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Chuteira Society Campo Grama Sintética</h3>
+                            <p>R$ 85,04</p>
+                            <a href="https://s.shopee.com.br/6AmDK1g0Id" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-chuteiras/ch4-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Chuteira Campo Umbro X-Diamond">
+                                <img src="img-chuteiras/ch4-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Chuteira Campo Umbro X-Diamond verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Chuteira Campo Umbro X-Diamond</h3>
+                            <p>R$ 94,91</p>
+                            <a href="https://s.shopee.com.br/40hikCODLw" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-chuteiras/ch5-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Chuteira Campo Dray Foorcy">
+                                <img src="img-chuteiras/ch5-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Chuteira Campo Dray Foorcy verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Chuteira Campo Dray Foorcy</h3>
+                            <p>R$ 74,40</p>
+                            <a href="https://s.shopee.com.br/3qOIY7xkmH" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-chuteiras/ch6-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Chuteira de Futsal Penalty Max 500">
+                                <img src="img-chuteiras/ch6-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Chuteira de Futsal Penalty Max 500 verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Chuteira de Futsal Penalty Max 500</h3>
+                            <p>R$ 199,41</p>
+                            <a href="https://s.shopee.com.br/20weN0kJYD" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-chuteiras/ch7-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Chuteira Futsal Penalty Max 1000">
+                                <img src="img-chuteiras/ch7-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Chuteira Futsal Penalty Max 1000 verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Chuteira Futsal Penalty Max 1000</h3>
+                            <p>R$ 304,00</p>
+                            <a href="https://s.shopee.com.br/2VsuyGrWi0" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                    </div>
+
+                    <button class="slider-btn next" onclick="moveSlider('chuteirasSlider', 1)">❯</button>
+                </div>
+            </section>
+
+            <section class="sessao-banners-categorias banners-destaque">
+                <div class="banner-categoria" data-filter="treino">
+                    <img src="equipamentos-de-treino.png" width="600" height="450" loading="lazy" alt="Equipamentos de Treino">
+                    <div class="overlay-banner">
+                        <h2>Equipamentos de Treino</h2>
+                        <a href="#sec-treino" class="btn-comprar">Comprar Agora</a>
+                    </div>
+                </div>
+                <div class="banner-categoria" data-filter="luva">
+                    <img src="luvas-de-goleiro.png" width="600" height="450" loading="lazy" alt="Luvas de Goleiro">
+                    <div class="overlay-banner">
+                        <h2>Luvas de Goleiro</h2>
+                        <a href="#sec-luvas" class="btn-comprar">Comprar Agora</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="produtos" id="sec-camisas">
+                <h2>⚽ <span>Camisas de Time</span></h2>
+
+                <div class="carousel-wrapper">
+                    <button class="slider-btn prev" onclick="moveSlider('camisasSlider', -1)">❮</button>
+
+                    <div class="grid" id="camisasSlider">
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="camisas-de-time/t1-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Camisa São Paulo I 24/25 s/n°">
+                                <img src="camisas-de-time/t1-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camisa São Paulo I 24/25 s/n° verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Camisa São Paulo I 24/25 s/n°</h3>
+                            <p>R$ 161,45</p>
+                            <a href="https://tiddly.xyz/ONhCF" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="camisas-de-time/t2-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Camisa São Paulo II 25/26 s/n">
+                                <img src="camisas-de-time/t2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camisa São Paulo II 25/26 s/n verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Camisa São Paulo II 25/26 s/n</h3>
+                            <p>R$ 179,54</p>
+                            <a href="https://tiddly.xyz/hLvgh" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="camisas-de-time/t3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Camisa Corinthians Nike II">
+                                <img src="camisas-de-time/t3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camisa Corinthians Nike II verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Camisa Corinthians Nike II</h3>
+                            <p>R$ 189,99</p>
+                            <a href="https://tiddly.xyz/ubbDz" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="camisas-de-time/t4-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Camisa Nike Corinthians I">
+                                <img src="camisas-de-time/t4-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camisa Nike Corinthians I verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Camisa Nike Corinthians I</h3>
+                            <p>R$ 104,49</p>
+                            <a href="https://tiddly.xyz/qMkmM" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="camisas-de-time/t5-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Camisa Palmeiras I 24/25 sn°">
+                                <img src="camisas-de-time/t5-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camisa Palmeiras I 24/25 sn° verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Camisa Palmeiras I 24/25 sn°</h3>
+                            <p>R$ 159,90</p>
+                            <a href="https://tiddly.xyz/UsJLU" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="camisas-de-time/t6-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Camisa Palmeiras II 23/24 s/ nº">
+                                <img src="camisas-de-time/t6-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camisa Palmeiras II 23/24 s/ nº verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Camisa Palmeiras II 23/24 s/ nº</h3>
+                            <p>R$ 178,20</p>
+                            <a href="https://tiddly.xyz/TmkgW" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                    </div>
+
+                    <button class="slider-btn next" onclick="moveSlider('camisasSlider', 1)">❯</button>
+                </div>
+            </section>
+
+            <section class="sessao-banners-categorias banners-destaque">
+                <div class="banner-categoria" data-filter="meia">
+                    <img src="meias-e-meioes.png" width="600" height="450" loading="lazy" alt="Meias e Meiões">
+                    <div class="overlay-banner">
+                        <h2>Meias e Meiões</h2>
+                        <a href="#sec-meias" class="btn-comprar">Comprar Agora</a>
+                    </div>
+                </div>
+                <div class="banner-categoria" data-filter="caneleira">
+                    <img src="caneleiras.png" width="600" height="450" loading="lazy" alt="Caneleiras">
+                    <div class="overlay-banner">
+                        <h2>Caneleiras</h2>
+                        <a href="#sec-caneleiras" class="btn-comprar">Comprar Agora</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="produtos" id="sec-bolas">
+                <h2>⚽ <span>Bolas</span></h2>
+
+                <div class="carousel-wrapper">
+                    <button class="slider-btn prev" onclick="moveSlider('bolasSlider', -1)">❮</button>
+
+                    <div class="grid" id="bolasSlider">
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-bolas/b1-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Bola Futebol Campo Oficial Topper + Bomba de Ar">
+                                <img src="img-bolas/b1-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bola Futebol Campo Oficial Topper + Bomba de Ar verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Bola Futebol Campo Oficial Topper + Bomba de Ar</h3>
+                            <p>R$ 32,85</p>
+                            <a href="https://s.shopee.com.br/1BNXO7Jr4H" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-bolas/b2-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Bola de Campo Penalty">
+                                <img src="img-bolas/b2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bola de Campo Penalty verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Bola de Campo Penalty</h3>
+                            <p>R$ 60,00</p>
+                            <a href="https://s.shopee.com.br/6L5dXqq0AR" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-bolas/b3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Bola Futebol Topper Hybrid">
+                                <img src="img-bolas/b3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bola Futebol Topper Hybrid verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Bola Futebol Topper Hybrid</h3>
+                            <p>R$ 48,90</p>
+                            <a href="https://s.shopee.com.br/7AekXfBW7f" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-bolas/b4-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Bola Topper Futsal">
+                                <img src="img-bolas/b4-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bola Topper Futsal verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Bola Topper Futsal</h3>
+                            <p>R$ 45,99</p>
+                            <a href="https://s.shopee.com.br/3qOIZf2cUU" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-img-container has-hover">
+                                <img src="img-bolas/b5-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Bola Futsal Penalty RX 500 + Bomba de Ar">
+                                <img src="img-bolas/b5-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bola Futsal Penalty RX 500 + Bomba de Ar verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                            </div>
+                            <h3>Bola Futsal Penalty RX 500 + Bomba de Ar</h3>
+                            <p>R$ 113,91</p>
+                            <a href="https://s.shopee.com.br/5AtgAUIm93" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                        </div>
+
+                    </div>
+
+                    <button class="slider-btn next" onclick="moveSlider('bolasSlider', 1)">❯</button>
+                </div>
+            </section>
+
+            <section class="sessao-banners-categorias banners-destaque">
+                <div class="banner-categoria" data-filter="bolsa">
+                    <img src="bolsas-e-mochilas.png" width="600" height="450" loading="lazy" alt="Bolsas e Mochilas">
+                    <div class="overlay-banner">
+                        <h2>Bolsas e Mochilas</h2>
+                        <a href="#sec-bolsas" class="btn-comprar">Comprar Agora</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===================== SEÇÕES OCULTAS =====================
+                 Não aparecem na rolagem normal. Ficam disponíveis apenas
+                 via busca, clique nos banners acima ou nos ícones de
+                 categoria — exatamente como no site original. -->
+
+            <!-- ======== ROUPAS ESPORTIVAS (ATUALIZADO) ======== -->
+            <section class="produtos sec-hidden" id="sec-roupas">
+                <div class="grid" id="roupasSlider">
+
+                <div class="card">
+                    <div class="card-img-container has-hover">
+                        <img src="img-camisas/c1-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Kit 5 Camisetas Dry Fit Básicas">
+                        <img src="img-camisas/c1-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Kit 5 Camisetas Dry Fit Básicas verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                    </div>
+                    <h3>Kit 5 Camisetas Dry Fit Básicas</h3>
+                    <p>R$ 116,30</p>
+                    <a href="https://meli.la/1gFpsTq" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-container has-hover">
+                        <img src="img-camisas/c2-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Camiseta Masculina Dry Fit">
+                        <img src="img-camisas/c2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camiseta Masculina Dry Fit verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                    </div>
+                    <h3>Camiseta Masculina Dry Fit</h3>
+                    <p>R$ 64,99</p>
+                    <a href="https://meli.la/18zF2Fe" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-container has-hover">
+                        <img src="img-camisas/c3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Camiseta Esportiva Penalty">
+                        <img src="img-camisas/c3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camiseta Esportiva Penalty verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                    </div>
+                    <h3>Camiseta Esportiva Penalty</h3>
+                    <p>R$ 44,55</p>
+                    <a href="https://meli.la/1X4Hr67" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-container has-hover">
+                        <img src="img-camisas/c4-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Kit 2 Camisetas Diadora Dry Fit">
+                        <img src="img-camisas/c4-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Kit 2 Camisetas Diadora Dry Fit verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                    </div>
+                    <h3>Kit 2 Camisetas Diadora Dry Fit</h3>
+                    <p>R$ 149,99</p>
+                    <a href="https://meli.la/1vE9KAQ" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-container has-hover">
+                        <img src="img-camisas/c5-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Kit 3 Camisas Térmicas">
+                        <img src="img-camisas/c5-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Kit 3 Camisas Térmicas verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                    </div>
+                    <h3>Kit 3 Camisas Térmicas</h3>
+                    <p>R$ 104,00</p>
+                    <a href="https://meli.la/1rrSQNE" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-container has-hover">
+                        <img src="img-camisas/c6-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Camisa Térmica Voker">
+                        <img src="img-camisas/c6-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Camisa Térmica Voker verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                    </div>
+                    <h3>Camisa Térmica Voker</h3>
+                    <p>R$ 37,70</p>
+                    <a href="https://meli.la/2jrbcyy" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                </div>
+
+                </div>
+            </section>
+
+            <section class="produtos sec-hidden" id="sec-shorts">
+                <div class="grid" id="shortsSlider">
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-bermudas/b1-fremte.png" class="img-frente" width="280" height="380" loading="lazy" alt="Kit 3 Shorts Futebol Dry Fit">
+                            <img src="img-bermudas/b1-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Kit 3 Shorts Futebol Dry Fit verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Kit 3 Shorts Futebol Dry Fit</h3>
+                        <p>R$ 38,90</p>
+                        <a href="https://meli.la/2p6ncjH" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-bermudas/b2-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Bermuda Esportiva">
+                            <img src="img-bermudas/b2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bermuda Esportiva verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Bermuda Esportiva</h3>
+                        <p>R$ 34,90</p>
+                        <a href="https://meli.la/1XVLQgN" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-bermudas/b3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Short De Futebol Umbro">
+                            <img src="img-bermudas/b3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Short De Futebol Umbro verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Short De Futebol Umbro</h3>
+                        <p>R$ 64</p>
+                        <a href="https://meli.la/17UAq5o" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-bermudas/b4-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Calção Com Bolso Masculino">
+                            <img src="img-bermudas/b4-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Calção Com Bolso Masculino verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Calção Com Bolso Masculino</h3>
+                        <p>R$ 53,33</p>
+                        <a href="https://meli.la/1J3v2Vi" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-bermudas/b5-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Calção Futebol Treino">
+                            <img src="img-bermudas/b5-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Calção Futebol Treino verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Calção Futebol Treino</h3>
+                        <p>R$ 43,98</p>
+                        <a href="https://meli.la/17TQ5Q6" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======== MEIAS E MEIÕES (ATUALIZADO) ======== -->
+            <section class="produtos sec-hidden" id="sec-meias">
+                <div class="grid" id="meiasSlider">
+
+                    <div class="card">
+                        <div class="card-img-container has-hover">
+                            <img src="img-meiao/m1-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Meias Esportivas Antiderrapante">
+                            <img src="img-meiao/m1-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Meias Esportivas Antiderrapante verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Meias Esportivas Antiderrapante</h3>
+                        <p>R$ 10,99</p>
+                        <a href="https://s.shopee.com.br/9fMYG0V3IR" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img-container has-hover">
+                            <img src="img-meiao/m2-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Meias de Futebol Longas">
+                            <img src="img-meiao/m2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Meias de Futebol Longas verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Meias de Futebol Longas</h3>
+                        <p>R$ 12,99</p>
+                        <a href="https://s.shopee.com.br/30peMEkx3h" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img-container has-hover">
+                            <img src="img-meiao/m3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Meias de Futebol Arrow Grip">
+                            <img src="img-meiao/m3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Meias de Futebol Arrow Grip verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Meias de Futebol Arrow Grip</h3>
+                        <p>R$ 12,99</p>
+                        <a href="https://s.shopee.com.br/5q9pjic67d" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img-container has-hover">
+                            <img src="img-meiao/m4-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Meião Futebol Listrado">
+                            <img src="img-meiao/m4-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Meião Futebol Listrado verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Meião Futebol Listrado</h3>
+                        <p>R$ 10,84</p>
+                        <a href="https://s.shopee.com.br/2qWEAVX2mm" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img-container has-hover">
+                            <img src="img-meiao/m5-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Meião de Futebol Pró Adulto">
+                            <img src="img-meiao/m5-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Meião de Futebol Pró Adulto verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Meião de Futebol Pró Adulto</h3>
+                        <p>R$ 14,90</p>
+                        <a href="https://s.shopee.com.br/7KydWsdoqA" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ======== CANELEIRAS (ATUALIZADO) ======== -->
+            <section class="produtos sec-hidden" id="sec-caneleiras">
+                <div class="grid" id="caneleirasSlider">
+
+                    <div class="card">
+                        <div class="card-img-container has-hover">
+                            <img src="img-caneleira/ca1-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Caneleira Penalty">
+                            <img src="img-caneleira/ca1-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Caneleira Penalty verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Caneleira Penalty</h3>
+                        <p>R$ 25,00</p>
+                        <a href="https://s.shopee.com.br/8pnRKEEQ2M" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img-container has-hover">
+                            <img src="img-caneleira/ca2-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Caneleira Small Shield">
+                            <img src="img-caneleira/ca2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Caneleira Small Shield verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Caneleira Small Shield</h3>
+                        <p>R$ 24,90</p>
+                        <a href="https://s.shopee.com.br/20x7C5PsG4" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img-container has-hover">
+                            <img src="img-caneleira/ca3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Caneleira Angels Driver">
+                            <img src="img-caneleira/ca3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Caneleira Angels Driver verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Caneleira Angels Driver</h3>
+                        <p>R$ 20,99</p>
+                        <a href="https://s.shopee.com.br/LotDErMnV" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-img-container has-hover">
+                            <img src="img-caneleira/ca4-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Caneleiras Personalizadas">
+                            <img src="img-caneleira/ca4-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Caneleiras Personalizadas verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Caneleiras Personalizadas</h3>
+                        <p>R$ 28,50</p>
+                        <a href="https://s.shopee.com.br/2LZxbQsTsN" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="produtos sec-hidden" id="sec-treino">
+                <div class="grid" id="treinoSlider">
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-equipamentos/e1-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Kit 10 Cones Demarcatorio Treino">
+                            <img src="img-equipamentos/e1-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Kit 10 Cones Demarcatorio Treino verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Kit 10 Cones Demarcatorio Treino</h3>
+                        <p>R$ 23,28</p>
+                        <a href="https://meli.la/2uPu7ts" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-equipamentos/e2-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Kit Funcional Agilidade 5 Chapéus + 5 Cones e Escada">
+                            <img src="img-equipamentos/e2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Kit Funcional Agilidade verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Kit Funcional Agilidade 5 Chapéus + 5 Cones e Escada</h3>
+                        <p>R$ 46,90</p>
+                        <a href="https://meli.la/24AVwcx" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-equipamentos/e3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Kit 10 Cones 10 Chapéus 1 Escada 5 Faixas">
+                            <img src="img-equipamentos/e3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Kit 10 Cones 10 Chapéus 1 Escada 5 Faixas verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Kit 10 Cones 10 Chapéus 1 Escada 5 Faixas</h3>
+                        <p>R$ 65,47</p>
+                        <a href="https://meli.la/2exwVsX" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-equipamentos/e4-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Kit 20 Peças Treino Funcional 10 Cone E 10 Chapéu">
+                            <img src="img-equipamentos/e4-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Kit 20 Peças Treino Funcional verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Kit 20 Peças Treino Funcional 10 Cone E 10 Chapéu</h3>
+                        <p>R$ 69,99</p>
+                        <a href="https://meli.la/11HjnW1" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-equipamentos/e5-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Trave Futebol Gol Kit Mini">
+                            <img src="img-equipamentos/e5-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Trave Futebol Gol Kit Mini verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Trave Futebol Gol Kit Mini</h3>
+                        <p>R$ 44,90</p>
+                        <a href="https://meli.la/15NSh9o" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-equipamentos/e6-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Brinquedo Infantil, Armação De Bola, Pano De Alvo">
+                            <img src="img-equipamentos/e6-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Brinquedo Infantil, Armação De Bola, Pano De Alvo verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Brinquedo Infantil, Armação De Bola, Pano De Alvo</h3>
+                        <p>R$ 139,94</p>
+                        <a href="https://meli.la/2DfM1n2" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="produtos sec-hidden" id="sec-luvas">
+                <div class="grid" id="luvasSlider">
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-luvas/l1-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Luva de Goleiro Penalty">
+                            <img src="img-luvas/l1-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Luva de Goleiro Penalty verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Luva de Goleiro Penalty</h3>
+                        <p>R$ 79,49</p>
+                        <a href="https://s.shopee.com.br/3VlzL9ld0v" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-luvas/l2-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Luva Force South Team Alta Grip">
+                            <img src="img-luvas/l2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Luva Force South Team Alta Grip verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Luva Force South Team Alta Grip</h3>
+                        <p>R$ 96,12</p>
+                        <a href="https://s.shopee.com.br/80EOhbm3LY" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-luvas/l3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Luva Goleiro Campo Umbro">
+                            <img src="img-luvas/l3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Luva Goleiro Campo Umbro verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Luva Goleiro Campo Umbro</h3>
+                        <p>R$ 76,87</p>
+                        <a href="https://s.shopee.com.br/3LSZ9OCWus" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-luvas/l4-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Luva De Goleiro Poker">
+                            <img src="img-luvas/l4-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Luva De Goleiro Poker verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Luva De Goleiro Poker</h3>
+                        <p>R$ 84,98</p>
+                        <a href="https://meli.la/2N9GJaa" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-luvas/l5-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Luva Futsal Training Infinity">
+                            <img src="img-luvas/l5-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Luva Futsal Training Infinity verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Luva Futsal Training Infinity</h3>
+                        <p>R$ 99,69</p>
+                        <a href="https://meli.la/2EomhmL" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="produtos sec-hidden" id="sec-bolsas">
+                <div class="grid" id="bolsasSlider">
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-bolsas/bo1-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Bolsa Mala Sport">
+                            <img src="img-bolsas/bo1-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bolsa Mala Sport verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Bolsa Mala Sport</h3>
+                        <p>R$ 42,99</p>
+                        <a href="https://meli.la/13MB8c2" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-bolsas/bo2-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Mochila Sacola Porta Tênis Chuteira">
+                            <img src="img-bolsas/bo2-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Mochila Sacola Porta Tênis Chuteira verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Mochila Sacola Porta Tênis Chuteira</h3>
+                        <p>R$ 19,58</p>
+                        <a href="https://meli.la/2fETNRe" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-bolsas/bo3-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Necessaire Porta Chuteiras">
+                            <img src="img-bolsas/bo3-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Necessaire Porta Chuteiras verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Necessaire Porta Chuteiras</h3>
+                        <p>R$ 42,15</p>
+                        <a href="https://meli.la/1Q6Rvw5" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-bolsas/bo4-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Bolsa Fardamento Uniforme Com Bolso Para 22 Uniformes">
+                            <img src="img-bolsas/bo4-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bolsa Fardamento Uniforme verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Bolsa Fardamento Uniforme Com Bolso Para 22 Uniformes</h3>
+                        <p>R$ 53</p>
+                        <a href="https://meli.la/1eUWCDU" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-img-container has-hover tenis">
+                            <img src="img-bolsas/bo5-frente.png" class="img-frente" width="280" height="380" loading="lazy" alt="Bolsa Mochila Porta 10 Bolas">
+                            <img src="img-bolsas/bo5-verso.png" class="img-verso" width="280" height="380" loading="lazy" alt="Bolsa Mochila Porta 10 Bolas verso" onerror="this.parentElement.classList.remove('has-hover');this.remove()">
+                        </div>
+                        <h3>Bolsa Mochila Porta 10 Bolas</h3>
+                        <p>R$ 127,68</p>
+                        <a href="https://meli.la/2XAPDJf" target="_blank" rel="noopener" class="buy-btn">COMPRAR</a>
+                    </div>
+                </div>
+            </section>
+
+            </div><!-- fim content-main -->
+        </div>
+    </main>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
